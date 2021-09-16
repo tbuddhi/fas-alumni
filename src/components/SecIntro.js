@@ -2,8 +2,8 @@ import React from 'react'
 
 const SecIntro = () => {
     return (
-        <section>
-            <div className="container intro-section">
+        <section className="intro-section">
+            <div className="container ">
                 <div className="row">
                     <div className="col">
                         <h1 className="pt-4 customHeading topBar">The Alumni Association</h1>
