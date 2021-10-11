@@ -4,7 +4,7 @@
 
 ## Demo
 
-This project was bootstrapped with [FAS Alumni Web](https://modest-lalande-9d9611.netlify.app/).
+[FAS Alumni Web](https://modest-lalande-9d9611.netlify.app/).
 
 ### `npm start`
 
