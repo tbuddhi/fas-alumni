@@ -3,6 +3,12 @@
 @import './footer';
 @import './landing';
 @import './headerNavbar';
+@import './homeCarousel';
+
+
+body{
+ font-family: 'Roboto Condensed';
+}
 
 .pt-1 {
     padding-top: .25rem;
@@ -15,4 +21,8 @@
 .customHeading{
   text-transform: uppercase;
   font-weight: 700;
+}
+
+a{
+  text-decoration: none;
 }
