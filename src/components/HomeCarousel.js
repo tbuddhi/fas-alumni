@@ -41,66 +41,66 @@ class HomeCarosel extends Component {
                     <div className="h-100">
                         <div className="row h-50">
                             <div className="col-4 slider-tile tile-bg-1">
-                                <h4><a href="#">AGM Meetings</a></h4>
+                                <h4><a href="javascript:void(0)">AGM Meetings</a></h4>
                                 <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
                                      pulvinar ac, lorem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum...</p>
-                                <a href="#">Read More</a>     
+                                <a href="javascript:void(0)">Read More</a>     
                             </div>
                             <div className="col-4 p-0">
-                                <a href="#"><div className="s-image-wrapper" style={sImage1}></div></a>
+                                <a href="javascript:void(0)"><div className="s-image-wrapper" style={sImage1}></div></a>
                             </div>
                             <div className="col-4 slider-tile tile-bg-3">
-                            <h4><a href="#">NEW CLASSROOM TECHNOLOGY</a></h4>
+                            <h4><a href="javascript:void(0)">NEW CLASSROOM TECHNOLOGY</a></h4>
                                 <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
                                      pulvinar ac, lorem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum...</p>
-                                <a href="#">Read More</a>
+                                <a href="javascript:void(0)">Read More</a>
                             </div>
                         </div>
                         <div className="row h-50">
                             <div className="col-4 p-0">
-                                <a href="#"><div className="s-image-wrapper" style={sImage2}></div></a>
+                                <a href="javascript:void(0)"><div className="s-image-wrapper" style={sImage2}></div></a>
                             </div>
                             <div className="col-4 slider-tile tile-bg-4">
-                                <h4><a href="#">NEW CLASSROOM TECHNOLOGY</a></h4>
+                                <h4><a href="javascript:void(0)">NEW CLASSROOM TECHNOLOGY</a></h4>
                                 <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
                                      pulvinar ac, lorem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum...</p>
-                                <a href="#">Read More</a>
+                                <a href="javascript:void(0)">Read More</a>
                             </div>
                             <div className="col-4 p-0">                                
-                                <a href="#"><div className="s-image-wrapper" style={sImage3}></div></a>
+                                <a href="javascript:void(0)"><div className="s-image-wrapper" style={sImage3}></div></a>
                             </div>
                         </div>
                     </div>
                     <div className="h-100">
                         <div className="row h-50">
                             <div className="col-4 slider-tile tile-bg-1">
-                                <h4><a href="#">AGM Meetings</a></h4>
+                                <h4><a href="javascript:void(0)">AGM Meetings</a></h4>
                                 <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
                                      pulvinar ac, lorem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum...</p>
-                                <a href="#">Read More</a>     
+                                <a href="javascript:void(0)">Read More</a>     
                             </div>
                             <div className="col-4 p-0">
-                                <a href="#"><div className="s-image-wrapper" style={sImage1}></div></a>
+                                <a href="javascript:void(0)"><div className="s-image-wrapper" style={sImage1}></div></a>
                             </div>
                             <div className="col-4 slider-tile tile-bg-3">
-                            <h4><a href="#">NEW CLASSROOM TECHNOLOGY</a></h4>
+                            <h4><a href="javascript:void(0)">NEW CLASSROOM TECHNOLOGY</a></h4>
                                 <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
                                      pulvinar ac, lorem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum...</p>
-                                <a href="#">Read More</a>
+                                <a href="javascript:void(0)">Read More</a>
                             </div>
                         </div>
                         <div className="row h-50">
                             <div className="col-4 p-0">
-                                <a href="#"><div className="s-image-wrapper" style={sImage2}></div></a>
+                                <a href="javascript:void(0)"><div className="s-image-wrapper" style={sImage2}></div></a>
                             </div>
                             <div className="col-4 slider-tile tile-bg-4">
-                                <h4><a href="#">NEW CLASSROOM TECHNOLOGY</a></h4>
+                                <h4><a href="javascript:void(0)">NEW CLASSROOM TECHNOLOGY</a></h4>
                                 <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
                                      pulvinar ac, lorem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum...</p>
-                                <a href="#">Read More</a>
+                                <a href="javascript:void(0)">Read More</a>
                             </div>
                             <div className="col-4 p-0">                                
-                                <a href="#"><div className="s-image-wrapper" style={sImage3}></div></a>
+                                <a href="javascript:void(0)"><div className="s-image-wrapper" style={sImage3}></div></a>
                             </div>
                         </div>
                     </div>
