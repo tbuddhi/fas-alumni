@@ -4,6 +4,8 @@
 @import './landing';
 @import './headerNavbar';
 @import './homeCarousel';
+// pages
+@import './pages/scholarships';
 
 
 body{
@@ -25,4 +27,8 @@ body{
 
 a{
   text-decoration: none;
+
+  &:hover {
+    transition: .4s;
+  }
 }

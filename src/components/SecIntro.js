@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SecIntro = () => {
     return (
@@ -27,16 +28,16 @@ const SecIntro = () => {
                             </div>
                             <div className="grid-tile tile-2">
                                 <div className="tile-block">
-                                    <a href={() => false}>
-                                        <h5>Meet Our<br />  Members </h5>
-                                    </a>
+                                    <Link to="/register">
+                                        <h5>Meet Our <br /> Members</h5>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="grid-tile tile-3">
                                 <div className="tile-block">
-                                    <a href={() => false}>
+                                    <Link to="/sholarships">
                                         <h5>Scholarship <br /> Programs</h5>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="grid-tile tile-4">
