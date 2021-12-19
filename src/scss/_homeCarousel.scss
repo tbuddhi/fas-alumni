@@ -48,3 +48,22 @@
 .tile-bg-4{
     background: #e8be6c;
 }
+
+// OverWrite library scss
+
+.carousel-control-prev {
+    left: -55px;
+}
+
+.carousel-control-next {
+    right: -55px;
+}
+
+.carousel-control.right, 
+.carousel-control-next,
+.carousel-control.left, 
+.carousel-control-prev {
+    &:hover{
+        background-image: none !important;
+    }
+}

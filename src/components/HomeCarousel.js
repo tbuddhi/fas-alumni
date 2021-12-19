@@ -20,7 +20,7 @@ class HomeCarosel extends Component {
         super(props);
         // this.slider = React.createRef();
         this.state = {
-            autoplay: false,
+            autoplay: true,
         };
     }
 
@@ -32,7 +32,7 @@ class HomeCarosel extends Component {
                 <RBCarousel
                     animation={true}
                     autoplay={this.state.autoplay}
-                    slideshowSpeed={1000}
+                    slideshowSpeed={5000}
                     defaultActiveIndex={0}
                     // leftIcon={this.state.leftIcon}
                     // rightIcon={this.state.rightIcon}
