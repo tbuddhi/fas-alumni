@@ -43,7 +43,7 @@ const SecIntro = () => {
                             <div className="grid-tile tile-4">
                                 <div className="tile-block">
                                     <a href={() => false}>
-                                        <h5>Our<br />  Winnings</h5>
+                                        <h5>Our<br />  Achievement</h5>
                                     </a>
                                 </div>
                             </div>

@@ -1,17 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import fireDB from '../database/fireDB';
+import { Modal, Button } from 'react-bootstrap';
 
 const initState = {
     name: '',
     email: '',
-    numOfSiblings: ''
+    numOfSiblings: '',
+    regNumber: '',
+    contactAddress: '',
+    permanentAddress: '',
+    selectedDistrict: '',
+    phoneLand: '',
+    phoneMobile: ''
 }
+
+
+
+const districts = ['Colombo', 'Kandy', 'Galle', 'Ampara', 'Anuradhapura',
+    'Badulla', 'Batticaloa', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kegalle',
+    'Kilinochchi', 'Kurunegala', 'Mannar', 'Matale', 'Matara', 'Moneragala', 'Mullativu',
+    'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya'];
 
 const ScholarRegisterForm = () => {
     const [state, setState] = useState(initState);
-    // const [data, setData] = useState({});
+    const [show, setShow] = useState(false);
+    const [showbtn, setShowbtn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const activeCode = useRef(null);
 
-    const { name, email, numOfSiblings } = state;
+    const { name, email, numOfSiblings, regNumber, contactAddress, permanentAddress,
+        phoneLand, phoneMobile } = state;
 
     const handleInputs = (e) => {
         const { name, value } = e.target;
@@ -24,8 +42,8 @@ const ScholarRegisterForm = () => {
         if (!name || !email) {
             alert("Please fill all fields");
         } else {
-            fireDB.child("ScholarRegistration").push( state, (err) => {
-                if(err){
+            fireDB.child("ScholarRegistration").push(state, (err) => {
+                if (err) {
                     console.log("Error Msg:" + err);
                 } else {
                     alert("success");
@@ -35,12 +53,59 @@ const ScholarRegisterForm = () => {
 
     }
 
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    
+    const handleActivate = (e) => {
+        e.preventDefault();
+
+        const inputCode = activeCode.current.value;
+
+        if (inputCode === 'AS2022') {
+            setShowbtn(true);
+            setShow(false);
+        } else {
+            setIsError(true);
+        }
+    };
+
     return (
         <div>
-            <div className="pb-4 pt-3 d-flex justify-content-end">
-                <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseExample">
-                    Register for Scholarship
-                </button>
+            <div className="pb-4 pt-3 d-flex ">
+
+                <button className={`btn btn-primary btn-lg ${showbtn? 'btn-hide': 'btn-show'}`}  variant="primary" onClick={handleShow}>
+                    Enter Activation Code
+                </button> 
+
+                {showbtn &&
+                    <button className={`btn btn-primary btn-lg`} type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseExample">
+                        Register for Scholarship
+                    </button>
+                }
+
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header >
+                        <Modal.Title>Activation code</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <input className="mb-2 form-control" type="text" ref={activeCode} />
+                        {isError &&
+                        <div className="alert-danger" role="alert">Please enter correct activation code</div>
+                        }
+                        
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Cancel
+                        </Button>
+                        <Button variant="primary" onClick={handleActivate}>
+                            Activate
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
+
             </div>
             <div className="collapse" id="collapseForm">
                 <h2 className='mb-5'>Application for Applied-RUSL ALUMNI Scholarships 2022</h2>
@@ -51,7 +116,7 @@ const ScholarRegisterForm = () => {
 
                         <div className="col-12">
                             <label htmlFor="inputFullname" className="form-label" > Full Name</label>
-                            <input 
+                            <input
                                 type="text" className="form-control" id="inputFullname" placeholder="Full name"
                                 name='name'
                                 value={name}
@@ -62,22 +127,34 @@ const ScholarRegisterForm = () => {
                         <div className="col-12">
                             <label className="form-label">Gender</label>
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="exampleRadios" id="genderMale" value="option1" />
+                                <input className="form-check-input" type="radio" id="genderMale"
+                                    name="gender"
+                                    value="Male"
+                                    onChange={handleInputs}
+                                />
                                 <label className="form-check-label" htmlFor="genderMale">Male</label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="exampleRadios" id="genderFemale" value="option2" />
+                                <input className="form-check-input" type="radio" id="genderFemale"
+                                    name="gender"
+                                    value="Female"
+                                    onChange={handleInputs}
+                                />
                                 <label className="form-check-label" htmlFor="genderFemale">Female</label>
                             </div>
                         </div>
 
                         <div className="col-md-6">
                             <label htmlFor="inputPassword4" className="form-label">University registration number *</label>
-                            <input type="text" className="form-control" id="inputPassword4" />
+                            <input type="text" className="form-control"
+                                name="regNumber"
+                                value={regNumber}
+                                onChange={handleInputs}
+                            />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputEmail" className="form-label">Email *</label>
-                            <input 
+                            <input
                                 type="email" className="form-control" id="inputEmail"
                                 name="email"
                                 value={email}
@@ -86,23 +163,46 @@ const ScholarRegisterForm = () => {
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputAddress" className="form-label">Contact Address</label>
-                            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
+                            <input type="text" className="form-control" placeholder="1234 Main St"
+                                name="contactAddress"
+                                value={contactAddress}
+                                onChange={handleInputs}
+                            />
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputAddress2" className="form-label">Permanent Address</label>
-                            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                            <input type="text" className="form-control" placeholder="Apartment, studio, or floor"
+                                name="permanentAddress"
+                                value={permanentAddress}
+                                onChange={handleInputs}
+                            />
                         </div>
                         <div className="col-md-4">
                             <label htmlFor="inputCity" className="form-label">District *</label>
-                            <input type="text" className="form-control" id="inputCity" />
+                            <select id="inputState" className="form-select" defaultValue={'DEFAULT'}
+                                name="district"
+                                onChange={handleInputs}>
+                                <option value="DEFAULT" disabled >Choose your District</option>
+                                {districts.map((district, i) =>
+                                    (<option key={i} value={district}>{district}</option>)
+                                )}
+                            </select>
+                            {/* <input type="text" className="form-control" /> */}
                         </div>
                         <div className="col-md-4">
-                            <label htmlFor="inputState" className="form-label">Telephone No (Land phone):</label>
-                            <input type="text" className="form-control" id="inputZip" />
+                            <label htmlFor="phoneLandId" className="form-label">Telephone No (Land phone):</label>
+                            <input type="text" className="form-control" id="phoneLandId"
+                                name="phoneLand"
+                                value={phoneLand}
+                                onChange={handleInputs}
+                            />
                         </div>
                         <div className="col-md-4">
-                            <label htmlFor="inputZip" className="form-label">Mobile No: *</label>
-                            <input type="text" className="form-control" id="inputZip" />
+                            <label htmlFor="phoneMobileId" className="form-label">Mobile No: *</label>
+                            <input type="text" className="form-control" id="phoneMobileId"
+                                name="phoneMobile"
+                                value={phoneMobile}
+                                onChange={handleInputs} />
                         </div>
                         <div className="col-12">
 
@@ -116,10 +216,10 @@ const ScholarRegisterForm = () => {
                             <label htmlFor="inputCity" className="form-label">Year of study *</label>
                             <select id="inputState" className="form-select">
                                 <option value="DEFAULT" disabled selected>Choose your year</option>
-                                <option selected>First Year</option>
-                                <option selected>Second Year</option>
-                                <option selected>Third Year</option>
-                                <option selected>Fourth Year</option>
+                                <option>First Year</option>
+                                <option>Second Year</option>
+                                <option>Third Year</option>
+                                <option>Fourth Year</option>
                             </select>
                         </div>
                         <div className='col-md-3'>
@@ -161,10 +261,10 @@ const ScholarRegisterForm = () => {
                             <label htmlFor="numOfSiblingsID" className="form-label">Number of siblings (brothers and sisters in your family) who are not earning *</label>
                         </div>
                         <div className='col-md-1 mt-0'>
-                            <input type="number" className="form-control" id="numOfSiblingsID" 
-                            name='numOfSiblings'
-                            value={numOfSiblings}                            
-                            onChange={handleInputs} />
+                            <input type="number" className="form-control" id="numOfSiblingsID"
+                                name='numOfSiblings'
+                                value={numOfSiblings}
+                                onChange={handleInputs} />
                         </div>
 
                         <div className='col-md-12'>

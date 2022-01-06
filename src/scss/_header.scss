@@ -7,7 +7,7 @@
     background-size: cover;
     background-position: 0px -525px;
     background-attachment: fixed;
-    padding-top: 8rem;
+    padding-top: 7rem;
 
     .header-overlay{
         background-color: rgba($color: #000000, $alpha: 1.0);
@@ -16,7 +16,34 @@
     .nav-wrapper {
         display: flex;
         flex-direction: column;
-        height: 36vh;
+        height: 38vh;
         justify-content: space-between;
+    }
+
+    .login-wrapper{
+        position: fixed;
+        right: 20px;
+        top: 20px;
+    }
+}
+
+.logo-brand{
+    height: 100px;
+}
+
+.user-login {
+    button{
+        border: none;
+        background-image: none;
+        background-color: rgba(0, 0, 0, .5);
+        color: #FFF;
+        padding: 5px 12px;
+        transition: .3s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgba(0, 0, 0, 1);
+            transition: .4s;
+        }
     }
 }

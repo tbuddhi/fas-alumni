@@ -1,4 +1,5 @@
 import React from 'react'
+import  rjtLogo from './../assets/img/rjt-logo.png'
 
 const Footer = () => {
     return (
@@ -6,7 +7,9 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-4">
-                        <h2>FAS ALUMNI</h2>
+                        <img src={rjtLogo} alt="University Logo" className="logo-brand" />
+                        <h2 className="mt-4">FAS ALUMNI</h2>
+                        <h5 className="pt-1 text-white text-uppercase">Rajarata University of Sri Lanka</h5>
                     </div>
                     <div className="col">
                         <div className="li-wrapper">
@@ -48,6 +51,9 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div className="row justify-content-center text-dark pt-4">
+                    --- Develop by TBuddhi ---
                 </div>
             </div>
         </div>

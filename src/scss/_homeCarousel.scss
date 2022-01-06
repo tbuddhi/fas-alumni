@@ -16,16 +16,58 @@
         text-transform: uppercase;
         margin-bottom: 2rem;
         padding: 0 2rem;
+
+        a {
+            color: $white;
+            position: relative;
+
+            &::before{
+                background: #fff;
+                width: 68px;
+                height: 4px;
+                overflow: hidden;
+                margin: 0 0 0 -34px;
+                transition: 0.8s;
+                pointer-events: none;
+                position: absolute;
+                top: -16px;
+                left: 50%;
+                content: '';
+            }
+        }
     }
 
-    a {
+    > a {
         color: $white;
+        position: relative;
+
+        &::before{
+            background: #fff;
+            width: 68px;
+            height: 4px;
+            overflow: hidden;
+            margin: 0 0 0 -34px;
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+            transition: 0.8s;
+            pointer-events: none;
+            position: absolute;
+            top: auto;
+            bottom: -9px;
+            left: 50%;
+            content: '';
+        }
     }
 
     &:hover {
         h4, a {
-            transition: all .3s;
+            transition: all .8s;
             color: #333;
+        }
+
+        a::before{
+            background: #333;
+            transition: 0.4s;
         }
     }
 }
