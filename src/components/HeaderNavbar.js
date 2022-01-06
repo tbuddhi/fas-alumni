@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const HeaderNavbar = () => {
     // let url="";
@@ -11,16 +11,16 @@ const HeaderNavbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav customNavbar__nav">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                            <NavLink exact className={({isActive}) => (isActive ? 'active' : 'nav-link')} aria-current="page" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/about-us">About Us</Link>
+                            <NavLink className={({isActive}) => (isActive ? 'active' : 'nav-link')} to="/about-us">About Us</NavLink>
                         </li>
                         <li className="nav-item dropdown">
-                            <Link className="nav-link" to="/our-events" aria-current="page">
+                            <NavLink className={({isActive}) => (isActive ? 'active' : 'nav-link')} to="/our-events" aria-current="page">
                         {/* <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> */}
                         Our Events
-                        </Link>
+                        </NavLink>
                         {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a className="dropdown-item" href={url}>Action</a></li>
                             <li><a className="dropdown-item" href={url}>Another action</a></li>
@@ -28,7 +28,7 @@ const HeaderNavbar = () => {
                         </ul> */}
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/contact-us">Contact Us</Link>
+                            <NavLink className={({isActive}) => (isActive ? 'active' : 'nav-link')} to="/contact-us">Contact Us</NavLink>
                         </li>
                     </ul>
                 </div>

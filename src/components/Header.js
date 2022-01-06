@@ -1,16 +1,21 @@
 import React from 'react'
-import HeaderNavbar from './HeaderNavbar'
+import HeaderNavbar from './HeaderNavbar';
+import  rjtLogo from './../assets/img/rjt-logo.png'
+import UserLogin from './UserLogin';
 
 const Header = () => {
     return (
         <div className="header">
-            {/* <div className="header-overlay"></div> */}
+            <div className="login-wrapper">
+                <UserLogin />
+            </div>
             <div className="container">
                 <div className="row">
                     <div className="nav-wrapper">
                         <div className="row">
                             <div className="col">
-                                <h1 className="pt-1 text-white customHeading">Applied Alumni</h1>
+                                <img src={rjtLogo} alt="University Logo" className="logo-brand" />
+                                <h1 className="pt-1 text-white customHeading">Applied Sciences Alumni</h1>
                                 <h5 className="pt-1 text-white text-uppercase">Rajarata University of Sri Lanka</h5>
                             </div>
                         </div>

@@ -25,7 +25,7 @@ class HomeCarosel extends Component {
     }
 
     render() {   
-        let url = "";
+        let url = "./";
 
         return (
             <div className="h-100">
