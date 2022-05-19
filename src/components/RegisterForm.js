@@ -1,5 +1,9 @@
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react'
 import fireDB from '../database/fireDB'
+import LoginButton from './AuthButtons/LoginButton';
+import LogoutButton from './AuthButtons/LogoutButton';
+import SignupButton from './AuthButtons/SignupButton';
 
 const initState = {
     name: '',
@@ -9,6 +13,7 @@ const initState = {
 const RegisterForm = () => {
     const [state, setState] = useState(initState);
     const [data, setData] = useState({});
+    const { isAuthenticated, user } = useAuth0();
 
     const { name, email } = state;
 
@@ -48,7 +53,11 @@ const RegisterForm = () => {
 
     return (
         <>
-            <section>
+        { isAuthenticated && (
+            <>
+            <h2>{user.name}</h2>
+            <LogoutButton />
+            {/* <section>
                 <div className='container'>
 
                     <form onSubmit={handleSubmit}>
@@ -101,9 +110,18 @@ const RegisterForm = () => {
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </section> */}
+            </>
+        )}
+        { !isAuthenticated && (
+            <LoginButton />
+        )}
         </>
     )
 }
 
-export default RegisterForm
+// export default withAuthenticationRequired(RegisterForm, {
+//     onRedirecting: () => <div>Loading</div>,
+// })
+
+export default RegisterForm;

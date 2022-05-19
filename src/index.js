@@ -5,11 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Auth0ProviderWithHistory from './auth0Provider';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Auth0ProviderWithHistory>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Auth0ProviderWithHistory>,
   document.getElementById('root')
 );
 

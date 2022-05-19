@@ -17,7 +17,7 @@ const ContactUs = () => {
                 <div className="row">
                     <div className="col-4">
                         <address>
-                        Visit us at: <a href="mailto:info@fasalumni.lk">fasalumni.lk</a><br/><br/>
+                        {/* Visit us at: <a href="mailto:info@fasalumni.lk">fasalumni.lk</a><br/><br/> */}
                         Faculty of Applied Sciences<br/>
                         Rajarata University of Sri Lanka
                         </address>
