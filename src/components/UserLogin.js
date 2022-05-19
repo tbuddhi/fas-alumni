@@ -1,18 +1,25 @@
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import LoginButton from './AuthButtons/LoginButton';
+import SignupButton from './AuthButtons/SignupButton';
+import LogoutButton from './AuthButtons/LogoutButton';
 
 const UserLogin = () => {
-
+    const { isAuthenticated } = useAuth0();
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
 
     return (
         <>
             <div className="user-login">
-                <button onClick={handleShow}>SIGN IN</button>
-                <button onClick={handleShow}>SIGN UP</button>
+                { isAuthenticated &&  (<LoginButton /> )}
+                { !isAuthenticated && ( <LogoutButton /> )}
+                {/* <button onClick={handleShow}>SIGN IN</button> */}
+                <SignupButton />
+                {/* <button onClick={handleShow}>SIGN UP</button> */}
             </div>
 
 
@@ -35,5 +42,9 @@ const UserLogin = () => {
         </>
     )
 }
+
+// export default withAuthenticationRequired(UserLogin, {
+//     onRedirecting: () => <div>Loading</div>,
+// });
 
 export default UserLogin

@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
+
 import './App.scss';
 
 import Layout from './components/Layout';
@@ -9,9 +10,20 @@ import OurEvents from './components/pages/OurEvents';
 import ContactUs from './components/pages/ContactUs';
 import RegisterForm from './components/RegisterForm';
 import ScholarViewTable from './components/ScholarViewTable';
+import { useAuth0 } from '@auth0/auth0-react';
+// import history from '../history';
 
 function App() {
+  // const history = useHistory();
+  const { isLoading } = useAuth0();
+
+  // if( isLoading ){
+  //   return <div>Loading...</div>
+  // }
+
   return (
+    <>
+    {/* <Router history={history}> */}
     <Router>
       <Layout>
         <Switch>
@@ -47,6 +59,7 @@ function App() {
         </Switch>
       </Layout>     
     </Router>
+    </>
   );
 }
 
