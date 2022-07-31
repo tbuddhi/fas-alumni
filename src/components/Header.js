@@ -19,7 +19,7 @@ const Header = () => {
                 {isAuthenticated && (
                     <div>
                         <img src={user.picture} alt={user.name} />
-                        <h2>{user.nickname}</h2>
+                        <h2>{user.given_name}</h2>
                         <p>{user.email}</p>
                     </div>
                 )}
