@@ -1,13 +1,28 @@
 import React from 'react'
 import HeaderNavbar from './HeaderNavbar';
-import  rjtLogo from './../assets/img/rjt-logo.png'
+import rjtLogo from './../assets/img/rjt-logo.png'
 import UserLogin from './UserLogin';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Header = () => {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
+    if (isLoading) {
+        return <div>Loading ...</div>;
+    }
+
     return (
         <div className="header">
             <div className="login-wrapper">
                 <UserLogin />
+                {isAuthenticated && (
+                    <div>
+                        <img src={user.picture} alt={user.name} />
+                        <h2>{user.nickname}</h2>
+                        <p>{user.email}</p>
+                    </div>
+                )}
             </div>
             <div className="container">
                 <div className="row">
