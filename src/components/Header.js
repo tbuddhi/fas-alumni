@@ -17,10 +17,12 @@ const Header = () => {
             <div className="login-wrapper">
                 <UserLogin />
                 {isAuthenticated && (
-                    <div>
+                    <div className="auth-user-info">
+                        <div className="user-name">
+                            <span>Welcome </span>
+                            <h2>{user.given_name}</h2>
+                        </div>
                         <img src={user.picture} alt={user.name} />
-                        <h2>{user.given_name}</h2>
-                        <p>{user.email}</p>
                     </div>
                 )}
             </div>

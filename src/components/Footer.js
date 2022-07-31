@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center text-dark pt-4">
-                    --- Develop by TBuddhi ---
+                    --- Design & Develop by TBuddhi ---
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@ const UserLogin = () => {
     const handleSignIn = () => {
         loginWithRedirect()
     };
-    
+
     const handleSignUp = () => {
         setShow(true)
     };
@@ -20,9 +20,9 @@ const UserLogin = () => {
     return (
         <>
             <div className="user-login">
+                <button onClick={handleSignUp}>SIGN UP</button>
                 {!isAuthenticated && <button onClick={handleSignIn}>SIGN IN</button>}
                 {isAuthenticated && <button onClick={() => logout({ returnTo: window.location.origin })}>SIGN OUT</button>}
-                <button onClick={handleSignUp}>SIGN UP</button>
             </div>
 
 
